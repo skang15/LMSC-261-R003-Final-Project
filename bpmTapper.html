@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            button {
+                background-color: blue;
+                text-align: center;
+                font-size: 30px;
+                padding: 40px;
+                font-family:
+                "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",  "Lucida Sans";
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 30px;
+                font-family:
+                "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",  "Lucida Sans";
+            }
+
+            body {
+                background-color: aqua;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>BPM Tapper</h1>
+
+        <button>Click Here For BPM</button>
+        <a href="index.html"><button>Home</button></a>
+
+        <script>
+            // STEP 1: Search and grab the element you want to Change
+            let button = document.querySelector("button")
+
+            button.addEventListener("click", getBPM);
+
+            let clicks = [];
+
+            function getBPM() {
+            const timeRightNow = Date.now();
+            clicks.push(timeRightNow);
+            
+            if(clicks.length >= 10) {
+                let totalInterval = 0;
+
+                for (let i = 1; < clicks.length; i++) {
+                        totalInterval += clicks[i] - click[i-1];
+
+                }
+                const averageInterval = totalInterval / (clicks.length - 1);
+                const bpm = Math.round(convert(averageInterval));
+                alert("The BPM is: " + bpm); 
+                clicks = [];
+                console.log("Total Interval" + totalInterval);
+                } else {
+                    console.log("There's not enough clicks yet to calculate.")
+                }
+
+            }
+
+            // Takes in averageInterval and converts to BPM
+            function convert(time) {
+                return 60 / (time / 1000);
+            }
+
+        </script>
+    </body>
+</html>
