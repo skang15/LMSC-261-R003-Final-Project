@@ -47,8 +47,8 @@
             if(clicks.length >= 10) {
                 let totalInterval = 0;
 
-                for (let i = 1; < clicks.length; i++) {
-                        totalInterval += clicks[i] - click[i-1];
+                for (let i = 1; i < clicks.length; i++) {
+                        totalInterval += clicks[i] - clicks[i-1];
 
                 }
                 const averageInterval = totalInterval / (clicks.length - 1);
